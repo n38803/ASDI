@@ -9,9 +9,71 @@ $(document).ready(function(){
 
 // Run DOM Check
 $(document).on('pageinit', function(){
-	//all actual code goes here
+//all actual code goes here
+	// predefined variables
 	
+	var meals = [
+	{
+		"name": "Chicken",
+		"date": "07/31/2013",
+		"type": "Dinner"
+		"calories": "500"
+	},
+	{
+		"name": "Rice",
+		"date": "07/31/2013",
+		"type": "Dinner"
+		"calories": "150"
+	},
+	{
+		"name": "Broccoli",
+		"date": "07/31/2013",
+		"type": "Dinner"
+		"calories": "50"
+	}
 
+];
+	
+	// display items
+	var showMeals = function(){
+  	if(meals.length>0){
+		for(var i=0, len=meals.length; i<len; i++){
+    	var newLi = document.createElement('li');
+    		
+document.getElementById('list').appendChild(newLi);
+  
+      var heading = document.createElement('h3');
+          heading.innerHTML = meals[i].name;
+          	newLi.appendChild(heading);
+      var pDate = document.createElement('p');
+          	pDate.innerHTML = meals[i].date;
+          newLi.appendChild(pNotes);
+      var pType = document.createElement('p');
+          pType.innerHTML = meals[i].type;
+          	newLi.appendChild(pType);
+		var pCal = document.createElement('p');
+          pCal.innerHTML = meals[i].calories;
+          	newLi.appendChild(pCal);
+    
+    console.log("Show function completed.");
+
+  }
+  	}
+  	else{
+  		alert("Nothing to show!");
+  		};
+  };
+
+	var display = document.querySelector("#display");
+	display.addEventListener("click", showMeals);
+
+
+	// submit item
+
+	// delete item
+	
+	// edit item
+	
 	
 	
 	

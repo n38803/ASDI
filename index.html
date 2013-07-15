@@ -210,6 +210,11 @@
 					<input type="date" name="date" id="date" value="2013-03-21" class="required" />
 				</div>
 				
+				<div data-role="fieldcontain">	
+					<label for="name">Food Name*</label>
+					<input type="text" name="name" id="name" placeholder="Steak, Apple, Popcorn, etc." class="required" />
+				</div>	
+				
 				<div data-role="fieldcontain">
 					<label for="type">Meal Type</label>
 					<select name="type" id="select" data-native-menu="false">
@@ -223,36 +228,8 @@
 				</div>
 				
 				<div data-role="fieldcontain">
-					<fieldset data-role="controlgroup">
-						<legend>Food Group*</legend>	
-						<input type="radio" checked="true" value="Unsure" name="group" id="unsure" class="required" />
-						<label for="unsure">Unsure</label>
-						<input type="radio" value="Meat" name="group" id="meat" />
-						<label for="meat">Meat</label>
-						<input type="radio" value="Vegetable" name="group" id="vegetable" />
-						<label for="vegetable">Vegetable</label>
-						<input type="radio" value="Fruit" name="group" id="fruit" />
-						<label for="fruit">Fruit</label>
-						<input type="radio" value="Grain" name="group" id="grain" />
-						<label for="grain">Grain</label>
-						<input type="radio" value="Dairy" name="group" id="dairy" />
-						<label for="dairy">Dairy</label>
-					</fieldset>
-				</div>	
-
-				<div data-role="fieldcontain">	
-					<label for="name">Food Name*</label>
-					<input type="text" name="name" id="name" placeholder="Steak, Apple, Popcorn, etc." class="required" />
-				</div>	
-				
-				<div data-role="fieldcontain">
 					<label for="calories">Calorie Amount</label>
 					<input type="range" name="calories" id="calories" value="0" min="0" max="3000" />
-				</div>
-	
-				<div data-role="fieldcontain">
-					<label for="notes">Additional Notes</label>
-					<textarea id="notes" placeholder="How was it prepared or cooked? How did it taste? How much of it did you eat?"></textarea>
 				</div>
 				
 				<div class="ui-grid-a">
@@ -263,6 +240,7 @@
 			</form>
 				
 				<a href="#formerrors" id="errorslink" data-rel="dialog">Open Errors</a>
+				<a href="#" id="display">View Entries</a>
 		
 		</div>
 		
