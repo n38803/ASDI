@@ -230,19 +230,20 @@
 			
 			<form action="" method="post" id="calform">
 
+				<div data-role="fieldcontain">	
+					<label for="name">Food Name*</label>
+					<input type="text" name="name" id="name" placeholder="Steak, Apple, Popcorn, etc." class="required" />
+				</div>	
+
+
 				<div data-role="fieldcontain">
 					<label for="date">Date*</label>
 					<input type="date" name="date" id="date" value="2013-03-21" class="required" />
 				</div>
 				
-				<div data-role="fieldcontain">	
-					<label for="name">Food Name*</label>
-					<input type="text" name="name" id="name" placeholder="Steak, Apple, Popcorn, etc." class="required" />
-				</div>	
-				
 				<div data-role="fieldcontain">
 					<label for="type">Meal Type</label>
-					<select name="type" id="select" data-native-menu="false">
+					<select name="type" id="type" data-native-menu="false">
 						<option data-placeholder="true">-- Please Select One --</option>	
 							<option value="breakfast" class="required">Breakfast</option>
 							<option value="lunch">Lunch</option>
@@ -258,7 +259,7 @@
 				</div>
 				
 				<div class="ui-grid-a">
-					<div class="ui-block-a"><input type="submit" value="Submit" /></div>
+					<div class="ui-block-a"><input type="submit" id="submitMeal" value="Submit" /></div>
 					<div class="ui-block-b"><input type="reset" value="Reset" /></div>
 				</div>	
 				

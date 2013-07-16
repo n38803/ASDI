@@ -10,8 +10,9 @@ $(document).ready(function(){
 // Run DOM Check
 $(document).on('pageinit', function(){
 //all actual code goes here
-	// predefined variables
-	
+
+
+	// predefined variables	
 	var meals = [
 	{
 		"name": "Chicken",
@@ -34,13 +35,16 @@ $(document).on('pageinit', function(){
 
 ];
 	
+
+
+
 	// display items
 	var showMeals = function(){
   	if(meals.length>0){
 		for(var i=0, len=meals.length; i<len; i++){
     	var newLi = document.createElement('li');
     		
-document.getElementById('list').appendChild(newLi);
+	document.getElementById('list').appendChild(newLi);
   
       var heading = document.createElement('h3');
           heading.innerHTML = meals[i].name;
@@ -68,15 +72,37 @@ document.getElementById('list').appendChild(newLi);
 	display.addEventListener("click", showMeals);
 
 
-	// submit item
 
-	// delete item
+
+	// submit item
+	var saveMeal = function(){
+
+  		var newMeal = {};
+
+ 			newMeal.name = document.getElementById('name').value;
+  			newMeal.date = document.getElementById('date').value;
+  			newMeal.type = document.getElementById('type').value;
+  			newMeal.calories = document.getElementById('calories').value;
+  
+		meals.push(newMeal);
+		location.href="#home";
+		document.getElementById('list').innerHTML = "";
 	
+		console.log("Save function completed.");  
+		console.log(newMeal);
+
+	};
+
+var save = document.querySelector("#submitMeal");
+save.addEventListener("click", saveMeal);
+	
+	
+	// delete item
 	var clearMeals = function(){
-	if(flavors.length==0){
+	if(meals.length==0){
 		alert("Already Cleared!")}
 	else{
-		  flavors.length = 0;
+		  meals.length = 0;
   	document.getElementById('list').innerHTML = "";
   	
 	console.log("Clear function completed.");
@@ -86,6 +112,9 @@ document.getElementById('list').appendChild(newLi);
 
 	var clear = document.querySelector("#clear");
 	clear.addEventListener("click", clearMeals);
+	
+	
+	
 	
 	// edit item
 	
