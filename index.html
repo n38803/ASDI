@@ -197,6 +197,31 @@
 			<img src="images/h4.png" align="right"></img>
 					
 		</div>
+
+	
+		<div data-role="content">
+			<a href="#" id="display" data-role="button" data-transition="fade">Show Meals</a>
+            
+            <ul id="list" data-role="listview">
+			</ul>			
+		</div>
+		
+		<div data-role="footer" data-position="fixed">
+			<div data-role="controlgroup" data-type="horizontal" id="footNav">
+				<a href="#form" data-transition="slide" data-role="button" data-inline="true">Add a Meal</a>				
+				<a href="#" id="clear" data-inline="true">Clear Tracker</a>
+			</div>
+		</div>
+		
+	</div>
+		
+	<div data-role="page" id="form" data-add-back-btn="true">
+		
+		<div data-role="header" data-position="fixed" data-id="home">
+		
+			<img src="images/h4.png" align="right"></img>
+					
+		</div>
 		
 		<div data-role="content" data-theme="a">
 			<h3>Meal Tracker:</h3>
@@ -205,19 +230,20 @@
 			
 			<form action="" method="post" id="calform">
 
+				<div data-role="fieldcontain">	
+					<label for="name">Food Name*</label>
+					<input type="text" name="name" id="name" placeholder="Steak, Apple, Popcorn, etc." class="required" />
+				</div>	
+
+
 				<div data-role="fieldcontain">
 					<label for="date">Date*</label>
 					<input type="date" name="date" id="date" value="2013-03-21" class="required" />
 				</div>
 				
-				<div data-role="fieldcontain">	
-					<label for="name">Food Name*</label>
-					<input type="text" name="name" id="name" placeholder="Steak, Apple, Popcorn, etc." class="required" />
-				</div>	
-				
 				<div data-role="fieldcontain">
 					<label for="type">Meal Type</label>
-					<select name="type" id="select" data-native-menu="false">
+					<select name="type" id="type" data-native-menu="false">
 						<option data-placeholder="true">-- Please Select One --</option>	
 							<option value="breakfast" class="required">Breakfast</option>
 							<option value="lunch">Lunch</option>
@@ -233,7 +259,7 @@
 				</div>
 				
 				<div class="ui-grid-a">
-					<div class="ui-block-a"><input type="submit" value="Submit" /></div>
+					<div class="ui-block-a"><input type="submit" id="submitMeal" value="Submit" /></div>
 					<div class="ui-block-b"><input type="reset" value="Reset" /></div>
 				</div>	
 				
