@@ -72,6 +72,21 @@ document.getElementById('list').appendChild(newLi);
 
 	// delete item
 	
+	var clearMeals = function(){
+	if(flavors.length==0){
+		alert("Already Cleared!")}
+	else{
+		  flavors.length = 0;
+  	document.getElementById('list').innerHTML = "";
+  	
+	console.log("Clear function completed.");
+		};
+	};
+
+
+	var clear = document.querySelector("#clear");
+	clear.addEventListener("click", clearMeals);
+	
 	// edit item
 	
 	

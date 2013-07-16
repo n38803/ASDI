@@ -190,7 +190,14 @@
 		
 	</div>
 	
-	<div data-role="page" id="tracker" data-add-back-btn="true"></div>
+	<div data-role="page" id="tracker" data-add-back-btn="true">
+		
+		<div data-role="header" data-position="fixed" data-id="home">
+		
+			<img src="images/h4.png" align="right"></img>
+					
+		</div>
+
 	
 		<div data-role="content">
 			<a href="#" id="display" data-role="button" data-transition="fade">Show Meals</a>
@@ -198,6 +205,15 @@
             <ul id="list" data-role="listview">
 			</ul>			
 		</div>
+		
+		<div data-role="footer" data-position="fixed">
+			<div data-role="controlgroup" data-type="horizontal" id="footNav">
+				<a href="#form" data-transition="slide" data-role="button" data-inline="true">Add a Meal</a>				
+				<a href="#" id="clear" data-inline="true">Clear Tracker</a>
+			</div>
+		</div>
+		
+	</div>
 		
 	<div data-role="page" id="form" data-add-back-btn="true">
 		
