@@ -16,19 +16,19 @@ $(document).on('pageinit', function(){
 	{
 		"name": "Chicken",
 		"date": "07/31/2013",
-		"type": "Dinner"
+		"type": "Dinner",
 		"calories": "500"
 	},
 	{
 		"name": "Rice",
 		"date": "07/31/2013",
-		"type": "Dinner"
+		"type": "Dinner",
 		"calories": "150"
 	},
 	{
 		"name": "Broccoli",
 		"date": "07/31/2013",
-		"type": "Dinner"
+		"type": "Dinner",
 		"calories": "50"
 	}
 
@@ -47,7 +47,7 @@ document.getElementById('list').appendChild(newLi);
           	newLi.appendChild(heading);
       var pDate = document.createElement('p');
           	pDate.innerHTML = meals[i].date;
-          newLi.appendChild(pNotes);
+          newLi.appendChild(pDate);
       var pType = document.createElement('p');
           pType.innerHTML = meals[i].type;
           	newLi.appendChild(pType);
