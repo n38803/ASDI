@@ -39,7 +39,7 @@ $(document).on('pageinit', function(){
 
 
 	// display items
-	var showMeals = function(){
+/*	var showMeals = function(){
   	if(meals.length>0){
 		for(var i=0, len=meals.length; i<len; i++){
     	var newLi = document.createElement('li');
@@ -70,8 +70,12 @@ $(document).on('pageinit', function(){
 
 	var display = document.querySelector("#display");
 	display.addEventListener("click", showMeals);
-
-
+*/
+	$('div#list').append('<ul></ul>');
+	
+	for(i=0;i<meals.length;i++) {
+		$('div#display ul').append('<li>' + meals[i] + '</li>');
+	};
 
 
 	// submit item
