@@ -7,43 +7,24 @@ $(document).ready(function(){
 });
 */
 
-// Run DOM Check
+// DOM CHECK
 $(document).on('pageinit', function(){
 //all actual code goes here
 
 
-	// PREDEFINED VARIABLES
-	var meals = [
-		{
-			"name": "Chicken",
-			"date": "07/31/2013",
-			"type": "Dinner",
-			"calories": "500"
-		},
-		{
-			"name": "Rice",
-			"date": "07/31/2013",
-			"type": "Dinner",
-			"calories": "150"
-		},
-		{
-			"name": "Broccoli",
-			"date": "07/31/2013",
-			"type": "Dinner",
-			"calories": "50"
-		}
-
-	];
+	// PREDEFINED VARIABLE IN LOCAL STORAGE
+	var meals = {
+		name: "Orange",
+		date: "2013-05-21",
+		type: "Dinner",
+		calories: "120"
+	};
 	
+	localStorage.setItem("meals", JSON.stringify(meals));
 
-
-
-
-
-
-
-
-
+	
+//	var viewstorage = localStorage.getItem("meals");
+//	meals = JSON.parse(viewstorage); //var test is now re-loaded!
 
 
 	// DISPLAY ITEM
@@ -53,12 +34,18 @@ $(document).on('pageinit', function(){
 	
 		console.log("Before: " + meals.length);
 	
-		for(i=0;i<meals.length;i++) {
-			$('div#display ul').append('<li>' + meals[i] + '</li>');
+		if(meals.length>0){
+			for(i=0;i<meals.length;i++) {
+				$('div#display ul').append('<li>' + meals[i] + '</li>');
 		
-			console.log(meals[i]);
-			console.log("After: " + meals.length);
+				console.log(meals[i]);
+				console.log("After: " + meals.length);
 		
+			};
+		}
+		else{
+			alert("No Data to Display");
+			
 		};
 	};	
 
@@ -175,7 +162,7 @@ $(document).on('pageinit', function(){
 			alert("Already Cleared!")
 		}
 		else{
-			meals.length = 0;
+			localStorage.clear();
 			var clearMeals = meals.length;
   			document.getElementById('list').innerHTML = "";
   			meals.push(clearMeals);
