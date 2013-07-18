@@ -12,8 +12,13 @@ $(document).on('pageinit', function(){
 //all actual code goes here
 
 
+console.log(localStorage);
+console.log(localStorage.length);
+
+
 	// PREDEFINED VARIABLE IN LOCAL STORAGE
-	var meals = {
+	
+	/*	var meals = {
 		name: "Orange",
 		date: "2013-05-21",
 		type: "Dinner",
@@ -21,36 +26,152 @@ $(document).on('pageinit', function(){
 	};
 	
 	localStorage.setItem("meals", JSON.stringify(meals));
+*/	
+	
+	
+	
+	
+	//Auto Populate from JSON
+	function jsonFill(){
+		for(var n in json){
+			var id = Math.floor(Math.random()*1000000001);
+			localStorage.setItem(id, JSON.stringify(json[n]));
+		};
+	};	
+	
+	//Auto Populate from XML
+	function xmlFill(){
+		for(var n in json){
+			var id = Math.floor(Math.random()*1000000001);
+			localStorage.setItem(id, JSON.stringify(json[n]));
+		};
+	};		
+
+	//Auto Populate from CSV
+	function csvFill(){
+		for(var n in json){
+			var id = Math.floor(Math.random()*1000000001);
+			localStorage.setItem(id, JSON.stringify(json[n]));
+		};
+	};	
+	
+
+
+
+
+
+
+
+
+
+	//	var viewstorage = localStorage.getItem("meals");
+	//	meals = JSON.parse(viewstorage); //var test is now re-loaded!
+
 
 	
-//	var viewstorage = localStorage.getItem("meals");
-//	meals = JSON.parse(viewstorage); //var test is now re-loaded!
-
-
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	// DISPLAY ITEM
 	$('div#list').append('<ul></ul>');
 	
 	var showMeals = function(){
 	
-		console.log("Before: " + meals.length);
+		console.log("Before: " + localStorage.length);
 	
-		if(meals.length>0){
-			for(i=0;i<meals.length;i++) {
-				$('div#display ul').append('<li>' + meals[i] + '</li>');
+		if(localStorage.length>0){
+			for(i=0,len=localStorage.length; i<len;i++) {
+				$('div#display ul').append('<li>' + localStorage[i] + '</li>');
 		
-				console.log(meals[i]);
-				console.log("After: " + meals.length);
+				console.log(localStorage[i]);
+				console.log("After: " + localStorage.length);
 		
 			};
 		}
 		else{
-			alert("No Data to Display");
+			var warning = prompt("No Data to Display - Which type of data would you like to auto-populate? Please select one of the following (case sensitive): XML | JSON | CSV");
+			if(warning == "JSON" || warning == "json"){
+				console.log("JSON Auto-Fill Initiated.");
+				jsonFill()
+			}
+			else if(warning == "CSV" || warning == "csv"){
+				console.log("CSV Auto-Fill Initiated");
+				csvFill()
+			}
+			else if(warning == "XML" || warning == "xml"){
+				console.log("XML Auto-Fill Initiated.");
+				xmlFill()
+			}
+			else{
+				console.log("Error: You have made an invalid selection.");
+				alert("You have made an invalid selection. Please try again.");
+			};
 			
 		};
 	};	
 
 	$("#display").on("click", showMeals);
 
+
+
+
+
+	// PARSE LOCAL STORAGE
+/*	function getData(){
+		if(localStorage.length === 0){
+			alert("There are no meals currently tracked so default information has been loaded.");
+			autoFill();
+		};
+		
+
+		var makeDiv = document.createElement('div');
+		makeDiv.setAttribute("id", "items");
+		
+		var makeList = document.createElement('ul');
+		makeDiv.appendChild(makeList);
+		
+		document.body.appendChild(makeDiv);
+		
+		$('items').style.display = "block";
+		
+		
+		for(var i=0, len=localStorage.length; i<len;i++){
+			var makeli = document.createElement('li');
+			var linksLi = document.createElement('li');
+			makeList.appendChild(makeli);
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			
+			//Convert the string from local storage
+			var obj = JSON.parse(value);
+			var makeSublist = document.createElement('ul');
+			makeli.appendChild(makeSublist);
+			
+
+			
+			for(var n in obj){
+				var makeSubli = document.createElement('li');
+				makeSublist.appendChild(makeSubli);
+				var optSubText = obj[n][0]+" "+obj[n][1];
+				makeSubli.innerHTML = optSubText;		
+				makeSublist.appendChild(linksLi);
+			};
+			//Create our edit & delete buttons for local storage
+			makeItemLinks(localStorage.key(i), linksLi);
+		};
+	};	*/
+	
+	
 	
 	// original display items
 	/*	var showMeals = function(){
@@ -99,25 +220,27 @@ $(document).on('pageinit', function(){
 
 
 
-	// SUBMIT ITEM
-	var saveMeal = function(){
 
-  		var newMeal = {};
-
- 			newMeal.name = document.getElementById('name').value;
-  			newMeal.date = document.getElementById('date').value;
-  			newMeal.type = document.getElementById('type').value;
-  			newMeal.calories = document.getElementById('calories').value;
-  
-
-		location.href="#home";
-		document.getElementById('list').innerHTML = "";
-		meals.push(newMeal);
+	// SUBMIT TO LOCAL STORAGE
+	var saveMeal = function(key){
+		//if there is no key, this is a brand new item & we need a new key
+		if(!(key)){
+			var id				= Math.floor(Math.random()*1000000001);
+		}else{
+			//set the id to the existing key that we're editing in order to rewrite local storage
+			id = key;
+		}
+		
+		var meals			= {};
+			meals.name		= $('#name').value();
+			meals.date		= $('#date').value();
+			meals.type		= $('#type').value();
+			meals.calories	= $('#calories').value();
+		
+		localStorage.setItem(id, JSON.stringify(meals));
+		alert("Meal Saved!");	
+	};	
 	
-		console.log("Save function completed.");  
-		console.log(newMeal);
-
-	};
 	$("#submitMeal").on("click", saveMeal);
 
 	//  submit item original event handler 
@@ -158,15 +281,11 @@ $(document).on('pageinit', function(){
 	
 	// DELETE ITEM
 	var clearMeals = function(){
-		if(meals.length==0){
+		if(localStorage.length==0){
 			alert("Already Cleared!")
 		}
 		else{
 			localStorage.clear();
-			var clearMeals = meals.length;
-  			document.getElementById('list').innerHTML = "";
-  			meals.push(clearMeals);
-  			
   	
 			console.log("Clear function completed.");
 		};
