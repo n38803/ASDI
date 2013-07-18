@@ -12,34 +12,61 @@ $(document).on('pageinit', function(){
 //all actual code goes here
 
 
-	// predefined variables	
+	// PREDEFINED VARIABLES
 	var meals = [
-	{
-		"name": "Chicken",
-		"date": "07/31/2013",
-		"type": "Dinner",
-		"calories": "500"
-	},
-	{
-		"name": "Rice",
-		"date": "07/31/2013",
-		"type": "Dinner",
-		"calories": "150"
-	},
-	{
-		"name": "Broccoli",
-		"date": "07/31/2013",
-		"type": "Dinner",
-		"calories": "50"
-	}
+		{
+			"name": "Chicken",
+			"date": "07/31/2013",
+			"type": "Dinner",
+			"calories": "500"
+		},
+		{
+			"name": "Rice",
+			"date": "07/31/2013",
+			"type": "Dinner",
+			"calories": "150"
+		},
+		{
+			"name": "Broccoli",
+			"date": "07/31/2013",
+			"type": "Dinner",
+			"calories": "50"
+		}
 
-];
+	];
 	
 
 
 
-	// display items
-/*	var showMeals = function(){
+
+
+
+
+
+
+
+
+	// DISPLAY ITEM
+	$('div#list').append('<ul></ul>');
+	
+	var showMeals = function(){
+	
+		console.log("Before: " + meals.length);
+	
+		for(i=0;i<meals.length;i++) {
+			$('div#display ul').append('<li>' + meals[i] + '</li>');
+		
+			console.log(meals[i]);
+			console.log("After: " + meals.length);
+		
+		};
+	};	
+
+	$("#display").on("click", showMeals);
+
+	
+	// original display items
+	/*	var showMeals = function(){
   	if(meals.length>0){
 		for(var i=0, len=meals.length; i<len; i++){
     	var newLi = document.createElement('li');
@@ -70,15 +97,22 @@ $(document).on('pageinit', function(){
 
 	var display = document.querySelector("#display");
 	display.addEventListener("click", showMeals);
-*/
-	$('div#list').append('<ul></ul>');
+*/	
 	
-	for(i=0;i<meals.length;i++) {
-		$('div#display ul').append('<li>' + meals[i] + '</li>');
-	};
+	
+	
+	
+	
+	
+	
 
 
-	// submit item
+
+
+
+
+
+	// SUBMIT ITEM
 	var saveMeal = function(){
 
   		var newMeal = {};
@@ -88,7 +122,29 @@ $(document).on('pageinit', function(){
   			newMeal.type = document.getElementById('type').value;
   			newMeal.calories = document.getElementById('calories').value;
   
+
+		location.href="#home";
+		document.getElementById('list').innerHTML = "";
 		meals.push(newMeal);
+	
+		console.log("Save function completed.");  
+		console.log(newMeal);
+
+	};
+	$("#submitMeal").on("click", saveMeal);
+
+	//  submit item original event handler 
+	/*  		
+		var saveMeal = function(){
+		
+			var newMeal = {};
+
+ 			newMeal.name = document.getElementById('name').value;
+  			newMeal.date = document.getElementById('date').value;
+  			newMeal.type = document.getElementById('type').value;
+  			newMeal.calories = document.getElementById('calories').value;
+  
+
 		location.href="#home";
 		document.getElementById('list').innerHTML = "";
 	
@@ -97,25 +153,71 @@ $(document).on('pageinit', function(){
 
 	};
 
-var save = document.querySelector("#submitMeal");
-save.addEventListener("click", saveMeal);
+	var save = document.querySelector("#submitMeal");
+	save.addEventListener("click", saveMeal);
+*/
+
 	
 	
-	// delete item
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// DELETE ITEM
 	var clearMeals = function(){
-	if(meals.length==0){
-		alert("Already Cleared!")}
-	else{
-		  meals.length = 0;
-  	document.getElementById('list').innerHTML = "";
+		if(meals.length==0){
+			alert("Already Cleared!")
+		}
+		else{
+			meals.length = 0;
+			var clearMeals = meals.length;
+  			document.getElementById('list').innerHTML = "";
+  			meals.push(clearMeals);
+  			
   	
-	console.log("Clear function completed.");
+			console.log("Clear function completed.");
+		};
+	};
+
+	$("#clear").on("click", clearMeals);
+	
+	
+	// original delete item
+	/*	
+	var clearMeals = function(){
+		if(meals.length==0){
+			alert("Already Cleared!")
+		}
+		else{
+			meals.length = 0;
+			var clearMeals = meals.length;
+  			document.getElementById('list').innerHTML = "";
+  			meals.push(clearMeals);
+  			
+  	
+			console.log("Clear function completed.");
 		};
 	};
 
 
 	var clear = document.querySelector("#clear");
 	clear.addEventListener("click", clearMeals);
+*/	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
