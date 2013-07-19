@@ -1,19 +1,10 @@
 // Shaun Thompson
 // ASDI 1307
 
-/* this is for Web usage not MOBILE
-$(document).ready(function(){
-	$('#somelink').on("click", myFn);
-});
-*/
-
 // DOM CHECK
 $(document).on('pageinit', function(){
 //all actual code goes here
 
-
-console.log(localStorage);
-console.log(localStorage.length);
 
 
 	// PREDEFINED VARIABLE IN LOCAL STORAGE
@@ -74,53 +65,45 @@ console.log(localStorage.length);
 	
 	
 	
-	
-	
-	
+	//ajax parse
+	$(function(){
+		$.ajax({
+   			url      : "xhr/json.php",
+			type     : "GET",
+ 			dataType : "json",
+   			success  : function(data, status) {
+    			console.log(status, data);
+   			},
+   			error : function(error, parseerror){
+   				console.log("Error: " + error + "\nParse Error: " + parseerror);
+   			}
+   		});
+	});
 	
 	
 	
 	
 	
 	// DISPLAY ITEM
-	$('div#list').append('<ul></ul>');
+
+	var value = [1, 2, 3, 4, 5];
 	
-	var showMeals = function(){
+	$("#display").on("click", function(){
 	
+	
+		$('#list').append('<ul></ul>');
+		
+		for(i=0;i<value.length;i++) {
+			
+			$('#list ul').append('<li>' + value[i] + '</li>');
+			}
+			
 		console.log("Before: " + localStorage.length);
 	
-		if(localStorage.length>0){
-			for(i=0,len=localStorage.length; i<len;i++) {
-				$('div#display ul').append('<li>' + localStorage[i] + '</li>');
+		console.log(localStorage);
 		
-				console.log(localStorage[i]);
-				console.log("After: " + localStorage.length);
-		
-			};
-		}
-		else{
-			var warning = prompt("No Data to Display - Which type of data would you like to auto-populate? Please select one of the following (case sensitive): XML | JSON | CSV");
-			if(warning == "JSON" || warning == "json"){
-				console.log("JSON Auto-Fill Initiated.");
-				jsonFill()
-			}
-			else if(warning == "CSV" || warning == "csv"){
-				console.log("CSV Auto-Fill Initiated");
-				csvFill()
-			}
-			else if(warning == "XML" || warning == "xml"){
-				console.log("XML Auto-Fill Initiated.");
-				xmlFill()
-			}
-			else{
-				console.log("Error: You have made an invalid selection.");
-				alert("You have made an invalid selection. Please try again.");
-			};
-			
-		};
-	};	
-
-	$("#display").on("click", showMeals);
+		console.log("After: " + localStorage.length);
+	});	
 
 
 
@@ -217,31 +200,22 @@ console.log(localStorage.length);
 
 
 
-
-
-
-
 	// SUBMIT TO LOCAL STORAGE
-	var saveMeal = function(key){
-		//if there is no key, this is a brand new item & we need a new key
-		if(!(key)){
-			var id				= Math.floor(Math.random()*1000000001);
-		}else{
-			//set the id to the existing key that we're editing in order to rewrite local storage
-			id = key;
-		}
-		
+	
+	var saveMeal = function(){
+		var id 				= Math.floor(Math.random()*1000000001);
 		var meals			= {};
-			meals.name		= $('#name').value();
-			meals.date		= $('#date').value();
-			meals.type		= $('#type').value();
-			meals.calories	= $('#calories').value();
+			meals.name		= $('#name').val();
+			meals.date		= $('#date').val();
+			meals.type		= $('#type').val();
+			meals.calories	= $('#calories').val();
 		
 		localStorage.setItem(id, JSON.stringify(meals));
-		alert("Meal Saved!");	
+
+				alert("Meal Saved!");
 	};	
 	
-	$("#submitMeal").on("click", saveMeal);
+	$("#submitMeal").click(saveMeal);
 
 	//  submit item original event handler 
 	/*  		
@@ -249,14 +223,14 @@ console.log(localStorage.length);
 		
 			var newMeal = {};
 
- 			newMeal.name = document.getElementById('name').value;
-  			newMeal.date = document.getElementById('date').value;
-  			newMeal.type = document.getElementById('type').value;
-  			newMeal.calories = document.getElementById('calories').value;
+ 			newMeal.name = $('name').value;
+  			newMeal.date = $('date').value;
+  			newMeal.type = $('type').value;
+  			newMeal.calories = $('calories').value;
   
 
 		location.href="#home";
-		document.getElementById('list').innerHTML = "";
+		$('list').innerHTML = "";
 	
 		console.log("Save function completed.");  
 		console.log(newMeal);
@@ -279,9 +253,9 @@ console.log(localStorage.length);
 	
 	
 	
-	// DELETE ITEM
+	// CLEAR STORAGE
 	var clearMeals = function(){
-		if(localStorage.length==0){
+		if(localStorage.length===0){
 			alert("Already Cleared!")
 		}
 		else{
@@ -291,34 +265,7 @@ console.log(localStorage.length);
 		};
 	};
 
-	$("#clear").on("click", clearMeals);
-	
-	
-	// original delete item
-	/*	
-	var clearMeals = function(){
-		if(meals.length==0){
-			alert("Already Cleared!")
-		}
-		else{
-			meals.length = 0;
-			var clearMeals = meals.length;
-  			document.getElementById('list').innerHTML = "";
-  			meals.push(clearMeals);
-  			
-  	
-			console.log("Clear function completed.");
-		};
-	};
-
-
-	var clear = document.querySelector("#clear");
-	clear.addEventListener("click", clearMeals);
-*/	
-	
-	
-	
-	
+	$("#clear").click(clearMeals);
 	
 	
 	
