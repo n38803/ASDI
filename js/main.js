@@ -47,7 +47,7 @@ $(document).on('pageinit', function(){
 	
 	// DISPLAY ITEM
 	$("#display").on("click", function(){
-		if(localStorage.length === 0){
+	/*	if(localStorage.length === 0){
 			alert("There is no information to display. Please select a file for auto-population.");
 			console.log(localStorage.length);
 		}
@@ -56,10 +56,25 @@ $(document).on('pageinit', function(){
 			
 			for(var i=0, len=localStorage.length; i<len;i++){
 				var key = localStorage.key(i);
-				$('#list').append('<li>' + localStorage[key] + '</li>');
+				var value = localStorage.getItem(key);
+				var obj = JSON.parse(value);
+				$('#list').append('<li>' + obj.value + '</li>');
 			
 			};
+		}; */
+
+		for(var i=0;i<localStorage.length;i++){
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			var obj = JSON.parse(value);
+			
+			$('#list').append('<ul>' + obj.name + '</ul>');
+			$('#list ul').append('<li>Date: ' + obj.date + '</li>');
+			$('#list ul').append('<li>Calories: ' + obj.calories + '</li>');
+			
+			
 		};
+
 	});	
 
 
@@ -78,6 +93,8 @@ $(document).on('pageinit', function(){
 			localStorage.clear();
   			alert("All Data Cleared.");
 			console.log("Clear function completed.");
+			
+			$('#list ul').remove();
 		};
 	});
 
@@ -89,7 +106,45 @@ $(document).on('pageinit', function(){
 	
 	// edit item
 	
-	
+/*	function editItem() {
+		var value = localStorage.getItem(this.key);	
+		var item = JSON.parse(value);
+		
+		//show form again
+		toggleControls("off");
+		
+		//populate form field with current localstorage
+		$('date').value = item.date[1];
+		$('type').value = item.type[1];
+		var radios = document.forms[0].group;
+		for (var i=0, j = radios.length; i < j; i++){
+			if (radios[i].value == "Meat" && item.group[1] == "Meat"){
+				radios[i].setAttribute("checked", "checked");
+			}else if(radios[i].value == "Vegetable" && item.group[1] == "Vegetable"){
+				radios[i].setAttribute("checked", "checked");
+			}else if(radios[i].value == "Fruit" && item.group[1] == "Fruit"){
+				radios[i].setAttribute("checked", "checked");
+			}else if(radios[i].value == "Grain" && item.group[1] == "Grain"){
+				radios[i].setAttribute("checked", "checked");
+			}else if(radios[i].value == "Dairy" && item.group[1] == "Dairy"){
+				radios[i].setAttribute("checked", "checked");
+			};		
+		};
+		$('name').value = item.name[1];
+		$('calories').value = item.calories[1];
+		$('notes').value = item.notes[1];
+		
+		//remove initial listener from input save contact button
+		save.removeEventListener("click", storeData);
+		//change submit button to edit button
+		$('submit').value = "Edit Meal Entry";
+		var editSubmit = $('submit');
+		//save key value established in this function as property of editsubmit
+		editSubmit.addEventListener("click", validate);
+		editSubmit.key = this.key;
+		
+
+	};*/	
 	
 	
 });
