@@ -5,27 +5,6 @@
 $(document).on('pageinit', function(){
 	
 
-	// SUBMIT TO LOCAL STORAGE
-	$('#submitMeal').on("click", storeData(this.key));
-	function storeData(key){
-		if(!(key)){
-			var id			= Math.floor(Math.random()*1000000001);
-		}else{
-			id = key;
-		}
-		var meals			= {};
-			meals.name		= $('#name').val();
-			meals.date		= $('#date').val();
-			meals.calories	= $('#calories').val();
-		
-		localStorage.setItem(id, JSON.stringify(meals));
-		
-		//localStorage.meals = JSON.stringify(meals);
-
-		alert("Meal Saved!");
-		return;
-	};	
-	
 	
 	
 	
@@ -63,6 +42,26 @@ $(document).on('pageinit', function(){
 
 
 
+	// SUBMIT TO LOCAL STORAGE
+	$('#submitMeal').on("click", storeData(this.key));
+	function storeData(key){
+		if(!(key)){
+			var id			= Math.floor(Math.random()*1000000001);
+		}else{
+			id = key;
+		}
+		var meals			= {};
+			meals.name		= $('#name').val();
+			meals.date		= $('#date').val();
+			meals.calories	= $('#calories').val();
+		
+		localStorage.setItem(id, JSON.stringify(meals));
+		
+		//localStorage.meals = JSON.stringify(meals);
+
+		alert("Meal Saved!");
+	};	
+	
 
 	
 	// CLEAR STORAGE

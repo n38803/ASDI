@@ -42,7 +42,7 @@ div{
 	font-style: italic;
 	font-weight: bold;
 	font-size: 12px;
-	text-align: center;
+	text-align: left;
 }
 	
 footer{
@@ -71,13 +71,7 @@ select:focus{
 	border-color: blue;
 	background-color: #888888;
 }
-	
 
-li{
-	display: block;
-	border: 0px;
-	text-align: left;
-}
 
 errors{
 	color: #ff0000;
