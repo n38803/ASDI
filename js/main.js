@@ -123,7 +123,22 @@ $(document).on('pageinit', function(){
 	
 	// CSV ajax parse
 	$('#csv').on("click", function(){
+		$('#list ul').remove();
+		$.ajax({
+			url		: "xhr/data.csv",
+			type	: "GET",
+			dataType: "text",
+			success	: function(data, success){
+				console.log("Success!");
+				$('#list').append('<ul></ul>');
+				$('#list ul').append('<li>' + data + '</li>');
+			},
+			error 	: function(error,parseerror){
+				console.log("No CSV");
+			}
 
+		});	
+	
 	});
 	
 	
