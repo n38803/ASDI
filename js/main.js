@@ -10,23 +10,14 @@ $(document).on('pageinit', function(){
 	
 	// DISPLAY ITEM
 	$('#display').on("click", function(){
-	/*	if(localStorage.length === 0){
+		if(localStorage.length === 0){
 			alert("There is no information to display. Please select a file for auto-population.");
-			console.log(localStorage.length);
+			console.log("Items in Storage: " + localStorage.length);
 		}
 		else{
 			$('#list').append('<ul></ul>');
 			
-			for(var i=0, len=localStorage.length; i<len;i++){
-				var key = localStorage.key(i);
-				var value = localStorage.getItem(key);
-				var obj = JSON.parse(value);
-				$('#list').append('<li>' + obj.value + '</li>');
-			
-			};
-		}; */
-
-		for(var i=0;i<localStorage.length;i++){
+			for(var i=0;i<localStorage.length;i++){
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			var obj = JSON.parse(value);
@@ -36,7 +27,9 @@ $(document).on('pageinit', function(){
 			$('#list ul').append('<li>Calories: ' + obj.calories + '</li>');
 			
 			
-		};
+		};	
+			
+		}; 
 
 	});	
 
@@ -82,7 +75,7 @@ $(document).on('pageinit', function(){
 	
 
 
-	//ajax parse
+	// JSON ajax parse
 	$('#json').on("click", function(){
 	
 		$(function(){
@@ -90,6 +83,42 @@ $(document).on('pageinit', function(){
    				url      : "xhr/data.json",
 				type     : "GET",
  				dataType : "json",
+   				success  : function(data, status) {
+    				console.log(status, data);
+   				},
+   				error : function(error, parseerror){
+   					console.log("Error: " + error + "\nParse Error: " + parseerror);
+   				}
+   			});
+		});
+	});	
+	
+	// XML ajax parse
+	$('#xml').on("click", function(){
+	
+		$(function(){
+			$.ajax({
+   				url      : "xhr/data.xml",
+				type     : "GET",
+ 				dataType : "xml",
+   				success  : function(data, status) {
+    				console.log(status, data);
+   				},
+   				error : function(error, parseerror){
+   					console.log("Error: " + error + "\nParse Error: " + parseerror);
+   				}
+   			});
+		});
+	});	
+	
+		// CSV ajax parse
+	$('#csv').on("click", function(){
+	
+		$(function(){
+			$.ajax({
+   				url      : "xhr/data.csv",
+				type     : "GET",
+ 				dataType : "csv",
    				success  : function(data, status) {
     				console.log(status, data);
    				},
