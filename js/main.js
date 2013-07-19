@@ -15,6 +15,7 @@ $(document).on('pageinit', function(){
 			console.log("Items in Storage: " + localStorage.length);
 		}
 		else{
+			$('#list ul').remove();
 			$('#list').append('<ul></ul>');
 			
 			for(var i=0;i<localStorage.length;i++){
@@ -78,12 +79,12 @@ $(document).on('pageinit', function(){
 
 	// JSON ajax parse
 	$('#json').on("click", function(){
+		$('#list ul').remove();
 		$.getJSON('xhr/data.json', function(data) {
         	for (var i in data.entries) {
-        		$('#list').append('<h3>' + data.entries[i].name + '</h3>');
-        		$('#list h3').append('<ul></ul>');
-        		$('#list h3 ul').append('<li>' + data.entries[i].date + '</li>');
-        		$('#list h3 ul').append('<li>' + data.entries[i].calories + '</li>');    
+        		$('#list').append('<ul>' + data.entries[i].name + '</ul>');
+        		$('#list ul').append('<li>' + data.entries[i].date + '</li>');
+        		$('#list ul').append('<li>' + data.entries[i].calories + '</li>');    
         	}
   		});
   	/*	$.getJSON('xhr/data.json', function(data) {
@@ -100,7 +101,7 @@ $(document).on('pageinit', function(){
 	
 	// XML ajax parse
 	$('#xml').on("click", function(){
-	
+		$('#list ul').remove();
 		$(function(){
 			$.ajax({
    				url      : "xhr/data.xml",
