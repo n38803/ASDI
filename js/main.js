@@ -78,20 +78,24 @@ $(document).on('pageinit', function(){
 
 	// JSON ajax parse
 	$('#json').on("click", function(){
-	
-		$(function(){
-			$.ajax({
-   				url      : "xhr/data.json",
-				type     : "GET",
- 				dataType : "json",
-   				success  : function(data, status) {
-    				console.log(status, data);
-   				},
-   				error : function(error, parseerror){
-   					console.log("JSON Error: " + error + "\nParse Error: " + parseerror);
-   				}
-   			});
-		});
+		$.getJSON('xhr/data.json', function(data) {
+        	for (var i in data.entries) {
+        		$('#list').append('<h3>' + data.entries[i].name + '</h3>');
+        		$('#list h3').append('<ul></ul>');
+        		$('#list h3 ul').append('<li>' + data.entries[i].date + '</li>');
+        		$('#list h3 ul').append('<li>' + data.entries[i].calories + '</li>');    
+        	}
+  		});
+  	/*	$.getJSON('xhr/data.json', function(data) {
+        var output="<ul>";
+        for (var i in data.entries) {
+            output+="<li>" + data.entries[i].name + " " + data.entries[i].date + "--" + data.entries[i].calories +"</li>";
+        }
+
+        output+="</ul>";
+        document.getElementById("list").innerHTML=output;
+  		}); */
+  		
 	});	
 	
 	// XML ajax parse
@@ -118,19 +122,7 @@ $(document).on('pageinit', function(){
 	
 	// CSV ajax parse
 	$('#csv').on("click", function(){
-		$.ajax({
-       		type: 'GET',
-       		url: 'xhr/data.csv',
-       		data: null,
-       		success: function(data, success) {
-       			console.log(data, success);
-           	     
-       		},
-       		error: function(error, parseerror){
-   				console.log("CSV Error: " + error + "\nParse Error:" + parseerror);
-       	
-       		}
-       	});
+
 	});
 	
 	
