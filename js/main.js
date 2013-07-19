@@ -4,29 +4,10 @@
 // DOM CHECK
 $(document).on('pageinit', function(){
 	
-	//ajax parse
-/*	$(function(){
-		$.ajax({
-   			url      : "xhr/json.php",
-			type     : "GET",
- 			dataType : "json",
-   			success  : function(data, status) {
-    			console.log(status, data);
-   			},
-   			error : function(error, parseerror){
-   				console.log("Error: " + error + "\nParse Error: " + parseerror);
-   			}
-   		});
-	});
-*/
-
-
-
 
 	// SUBMIT TO LOCAL STORAGE
 	$('#submitMeal').on("click", storeData(this.key));
-
-		function storeData(key){
+	function storeData(key){
 		if(!(key)){
 			var id			= Math.floor(Math.random()*1000000001);
 		}else{
@@ -45,8 +26,11 @@ $(document).on('pageinit', function(){
 		return;
 	};	
 	
+	
+	
+	
 	// DISPLAY ITEM
-	$("#display").on("click", function(){
+	$('#display').on("click", function(){
 	/*	if(localStorage.length === 0){
 			alert("There is no information to display. Please select a file for auto-population.");
 			console.log(localStorage.length);
@@ -80,8 +64,6 @@ $(document).on('pageinit', function(){
 
 
 
-
-
 	
 	// CLEAR STORAGE
 	$('#clear').on("click", function(){
@@ -99,7 +81,25 @@ $(document).on('pageinit', function(){
 	});
 
 	
+
+
+	//ajax parse
+	$('#json').on("click", function(){
 	
+		$(function(){
+			$.ajax({
+   				url      : "xhr/data.json",
+				type     : "GET",
+ 				dataType : "json",
+   				success  : function(data, status) {
+    				console.log(status, data);
+   				},
+   				error : function(error, parseerror){
+   					console.log("Error: " + error + "\nParse Error: " + parseerror);
+   				}
+   			});
+		});
+	});	
 	
 	
 	
