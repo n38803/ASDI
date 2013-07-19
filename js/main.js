@@ -88,7 +88,7 @@ $(document).on('pageinit', function(){
     				console.log(status, data);
    				},
    				error : function(error, parseerror){
-   					console.log("Error: " + error + "\nParse Error: " + parseerror);
+   					console.log("JSON Error: " + error + "\nParse Error: " + parseerror);
    				}
    			});
 		});
@@ -116,24 +116,22 @@ $(document).on('pageinit', function(){
 
 	});	
 	
-		// CSV ajax parse
+	// CSV ajax parse
 	$('#csv').on("click", function(){
-	
-		$(function(){
-			$.ajax({
-   				url      : "xhr/data.csv",
-				type     : "GET",
- 				dataType : "csv",
-   				success  : function(data, status) {
-    				console.log(status, data);
-   				},
-   				error : function(error, parseerror){
-   					console.log("Error: " + error + "\nParse Error: " + parseerror);
-   				}
-   			});
-		});
-	});	
-	
+		$.ajax({
+       		type: 'GET',
+       		url: 'xhr/data.csv',
+       		data: null,
+       		success: function(data, success) {
+       			console.log(data, success);
+           	     
+       		},
+       		error: function(error, parseerror){
+   				console.log("CSV Error: " + error + "\nParse Error:" + parseerror);
+       	
+       		}
+       	});
+	});
 	
 	
 	
