@@ -60,6 +60,7 @@ $(document).on('pageinit', function(){
 	// CLEAR STORAGE
 	$('#clear').on("click", function(){
 		if(localStorage.length === 0){
+			$('#list ul').remove();
 			alert("Already Cleared!");
 			return;
 		}
@@ -101,14 +102,18 @@ $(document).on('pageinit', function(){
    				url      : "xhr/data.xml",
 				type     : "GET",
  				dataType : "xml",
-   				success  : function(data, status) {
-    				console.log(status, data);
-   				},
+   				success  : showXML,			
    				error : function(error, parseerror){
    					console.log("Error: " + error + "\nParse Error: " + parseerror);
    				}
    			});
+   			
+   			function showXML(xml, textStatus, jqXHR){
+   				$('#list').append('<ul></ul>')
+    			$('#list ul').append(jqXHR.responseText);
+    		}
 		});
+
 	});	
 	
 		// CSV ajax parse
