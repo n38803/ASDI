@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entries>
+	<entry1>
+		<name>Spaghetti</name>
+		<date>2001-01-01</date>
+		<type>Dinner</type>
+		<calories>380</calories>
+	</entry1>
+	<entry2>
+		<name>General Tso</name>
+		<date>2001-01-02</date>
+		<type>Dinner</type>
+		<calories>520</calories>
+	</entry2>
+	<entry3>
+		<name>Lo Mein</name>
+		<date>2001-01-03</date>
+		<type>Dinner</type>
+		<calories>320</calories>
+	</entry3>
+	<entry4>
+		<name>Lasagna</name>
+		<date>2001-01-04</date>
+		<type>Dinner</type>
+		<calories>600</calories>
+	</entry4>
+	<entry5>
+		<name>Pizza</name>
+		<date>2001-01-05</date>
+		<type>Dinner</type>
+		<calories>480</calories>
+	</entry5>
+</entries>

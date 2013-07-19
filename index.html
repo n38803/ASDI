@@ -32,8 +32,8 @@
 		<div data-role="content" data-theme="a">
 		
 			<p align="center">
-			<img src="images/feature.png"></img>
-			<a href="#tracker"><img src="images/cta.png"></img></a>
+				<br><img src="images/feature.png"></img></br>
+				<br><a href="#tracker"><img src="images/cta.png"></img></a></br>
 			</p>
 			
 			
@@ -200,16 +200,22 @@
 
 	
 		<div data-role="content">
+			
 			<a href="#" id="display" data-role="button" data-transition="fade">Show Meals</a>
+			<a href="#" id="son" data-role="button" data-transition="fade">Populate JSON</a>
+			<a href="#" id="xml" data-role="button" data-transition="fade">Populate XML</a>
+			<a href="#" id="csv" data-role="button" data-transition="fade">Populate CSV</a>
             
-            <ul id="list" data-role="listview">
-			</ul>			
+            <div id="list">
+            
+            </div>
+            			
 		</div>
 		
 		<div data-role="footer" data-position="fixed">
 			<div data-role="controlgroup" data-type="horizontal" id="footNav">
 				<a href="#form" data-transition="slide" data-role="button" data-inline="true">Add a Meal</a>				
-				<a href="#" id="clear" data-inline="true">Clear Tracker</a>
+				<a href="#" id="clear" data-role="button" data-theme="b" data-inline="true">Clear Tracker</a>
 			</div>
 		</div>
 		
@@ -239,18 +245,6 @@
 				<div data-role="fieldcontain">
 					<label for="date">Date*</label>
 					<input type="date" name="date" id="date" value="2013-03-21" class="required" />
-				</div>
-				
-				<div data-role="fieldcontain">
-					<label for="type">Meal Type</label>
-					<select name="type" id="type" data-native-menu="false">
-						<option data-placeholder="true">-- Please Select One --</option>	
-							<option value="breakfast" class="required">Breakfast</option>
-							<option value="lunch">Lunch</option>
-							<option value="dinner">Dinner</option>
-							<option value="snack">Snack</option>
-							<option value="other">Other</option>
-					</select>
 				</div>
 				
 				<div data-role="fieldcontain">

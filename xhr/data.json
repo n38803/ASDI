@@ -1,0 +1,32 @@
+{
+	"entry1": {
+		"name": ["Food Name:", "KFC"],
+		"date": ["Date:", "2003-03-01"],
+		"type": ["Meal Type", "Lunch"],
+		"calories": ["Calorie Amount:", "180"]
+	},
+	"entry2": {
+		"name": ["Food Name:", "Arbys"],
+		"date": ["Date:", "2003-03-02"],
+		"type": ["Meal Type", "Lunch"],
+		"calories": ["Calorie Amount:", "320"]
+	},	
+	"entry3": {
+		"name": ["Food Name:", "Mcdonalds"],
+		"date": ["Date:", "2003-03-03"],
+		"type": ["Meal Type", "Lunch"],
+		"calories": ["Calorie Amount:", "580"]
+	},
+	"entry4": {
+		"name": ["Food Name:", "Burgerking"],
+		"date": ["Date:", "2003-03-04"],
+		"type": ["Meal Type", "Lunch"],
+		"calories": ["Calorie Amount:", "240"]
+	}
+	"entry5": {
+		"name": ["Food Name:", "Tacobell"],
+		"date": ["Date:", "2003-03-05"],
+		"type": ["Meal Type", "Lunch"],
+		"calories": ["Calorie Amount:", "800"]
+	}
+}

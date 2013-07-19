@@ -1,124 +1,150 @@
 // Shaun Thompson
 // ASDI 1307
 
-/* this is for Web usage not MOBILE
-$(document).ready(function(){
-	$('#somelink').on("click", myFn);
-});
+// DOM CHECK
+$(document).on('pageinit', function(){
+	
+	//ajax parse
+/*	$(function(){
+		$.ajax({
+   			url      : "xhr/json.php",
+			type     : "GET",
+ 			dataType : "json",
+   			success  : function(data, status) {
+    			console.log(status, data);
+   			},
+   			error : function(error, parseerror){
+   				console.log("Error: " + error + "\nParse Error: " + parseerror);
+   			}
+   		});
+	});
 */
 
-// Run DOM Check
-$(document).on('pageinit', function(){
-//all actual code goes here
 
 
-	// predefined variables	
-	var meals = [
-	{
-		"name": "Chicken",
-		"date": "07/31/2013",
-		"type": "Dinner",
-		"calories": "500"
-	},
-	{
-		"name": "Rice",
-		"date": "07/31/2013",
-		"type": "Dinner",
-		"calories": "150"
-	},
-	{
-		"name": "Broccoli",
-		"date": "07/31/2013",
-		"type": "Dinner",
-		"calories": "50"
-	}
 
-];
+	// SUBMIT TO LOCAL STORAGE
+	$('#submitMeal').on("click", storeData(this.key));
+
+		function storeData(key){
+		if(!(key)){
+			var id			= Math.floor(Math.random()*1000000001);
+		}else{
+			id = key;
+		}
+		var meals			= {};
+			meals.name		= $('#name').val();
+			meals.date		= $('#date').val();
+			meals.calories	= $('#calories').val();
+		
+		localStorage.setItem(id, JSON.stringify(meals));
+		
+		//localStorage.meals = JSON.stringify(meals);
+
+		alert("Meal Saved!");
+		return;
+	};	
 	
+	// DISPLAY ITEM
+	$("#display").on("click", function(){
+	/*	if(localStorage.length === 0){
+			alert("There is no information to display. Please select a file for auto-population.");
+			console.log(localStorage.length);
+		}
+		else{
+			$('#list').append('<ul></ul>');
+			
+			for(var i=0, len=localStorage.length; i<len;i++){
+				var key = localStorage.key(i);
+				var value = localStorage.getItem(key);
+				var obj = JSON.parse(value);
+				$('#list').append('<li>' + obj.value + '</li>');
+			
+			};
+		}; */
 
-
-
-	// display items
-	var showMeals = function(){
-  	if(meals.length>0){
-		for(var i=0, len=meals.length; i<len; i++){
-    	var newLi = document.createElement('li');
-    		
-	document.getElementById('list').appendChild(newLi);
-  
-      var heading = document.createElement('h3');
-          heading.innerHTML = meals[i].name;
-          	newLi.appendChild(heading);
-      var pDate = document.createElement('p');
-          	pDate.innerHTML = meals[i].date;
-          newLi.appendChild(pDate);
-      var pType = document.createElement('p');
-          pType.innerHTML = meals[i].type;
-          	newLi.appendChild(pType);
-		var pCal = document.createElement('p');
-          pCal.innerHTML = meals[i].calories;
-          	newLi.appendChild(pCal);
-    
-    console.log("Show function completed.");
-
-  }
-  	}
-  	else{
-  		alert("Nothing to show!");
-  		};
-  };
-
-	var display = document.querySelector("#display");
-	display.addEventListener("click", showMeals);
-
-
-
-
-	// submit item
-	var saveMeal = function(){
-
-  		var newMeal = {};
-
- 			newMeal.name = document.getElementById('name').value;
-  			newMeal.date = document.getElementById('date').value;
-  			newMeal.type = document.getElementById('type').value;
-  			newMeal.calories = document.getElementById('calories').value;
-  
-		meals.push(newMeal);
-		location.href="#home";
-		document.getElementById('list').innerHTML = "";
-	
-		console.log("Save function completed.");  
-		console.log(newMeal);
-
-	};
-
-var save = document.querySelector("#submitMeal");
-save.addEventListener("click", saveMeal);
-	
-	
-	// delete item
-	var clearMeals = function(){
-	if(meals.length==0){
-		alert("Already Cleared!")}
-	else{
-		  meals.length = 0;
-  	document.getElementById('list').innerHTML = "";
-  	
-	console.log("Clear function completed.");
+		for(var i=0;i<localStorage.length;i++){
+			var key = localStorage.key(i);
+			var value = localStorage.getItem(key);
+			var obj = JSON.parse(value);
+			
+			$('#list').append('<ul>' + obj.name + '</ul>');
+			$('#list ul').append('<li>Date: ' + obj.date + '</li>');
+			$('#list ul').append('<li>Calories: ' + obj.calories + '</li>');
+			
+			
 		};
-	};
+
+	});	
 
 
-	var clear = document.querySelector("#clear");
-	clear.addEventListener("click", clearMeals);
+
+
+
+
+	
+	// CLEAR STORAGE
+	$('#clear').on("click", function(){
+		if(localStorage.length === 0){
+			alert("Already Cleared!");
+			return;
+		}
+		else{
+			localStorage.clear();
+  			alert("All Data Cleared.");
+			console.log("Clear function completed.");
+			
+			$('#list ul').remove();
+		};
+	});
+
+	
+	
 	
 	
 	
 	
 	// edit item
 	
-	
+/*	function editItem() {
+		var value = localStorage.getItem(this.key);	
+		var item = JSON.parse(value);
+		
+		//show form again
+		toggleControls("off");
+		
+		//populate form field with current localstorage
+		$('date').value = item.date[1];
+		$('type').value = item.type[1];
+		var radios = document.forms[0].group;
+		for (var i=0, j = radios.length; i < j; i++){
+			if (radios[i].value == "Meat" && item.group[1] == "Meat"){
+				radios[i].setAttribute("checked", "checked");
+			}else if(radios[i].value == "Vegetable" && item.group[1] == "Vegetable"){
+				radios[i].setAttribute("checked", "checked");
+			}else if(radios[i].value == "Fruit" && item.group[1] == "Fruit"){
+				radios[i].setAttribute("checked", "checked");
+			}else if(radios[i].value == "Grain" && item.group[1] == "Grain"){
+				radios[i].setAttribute("checked", "checked");
+			}else if(radios[i].value == "Dairy" && item.group[1] == "Dairy"){
+				radios[i].setAttribute("checked", "checked");
+			};		
+		};
+		$('name').value = item.name[1];
+		$('calories').value = item.calories[1];
+		$('notes').value = item.notes[1];
+		
+		//remove initial listener from input save contact button
+		save.removeEventListener("click", storeData);
+		//change submit button to edit button
+		$('submit').value = "Edit Meal Entry";
+		var editSubmit = $('submit');
+		//save key value established in this function as property of editsubmit
+		editSubmit.addEventListener("click", validate);
+		editSubmit.key = this.key;
+		
+
+	};*/	
 	
 	
 });
