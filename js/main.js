@@ -10,23 +10,15 @@ $(document).on('pageinit', function(){
 	
 	// DISPLAY ITEM
 	$('#display').on("click", function(){
-	/*	if(localStorage.length === 0){
+		if(localStorage.length === 0){
 			alert("There is no information to display. Please select a file for auto-population.");
-			console.log(localStorage.length);
+			console.log("Items in Storage: " + localStorage.length);
 		}
 		else{
+			$('#list ul').remove();
 			$('#list').append('<ul></ul>');
 			
-			for(var i=0, len=localStorage.length; i<len;i++){
-				var key = localStorage.key(i);
-				var value = localStorage.getItem(key);
-				var obj = JSON.parse(value);
-				$('#list').append('<li>' + obj.value + '</li>');
-			
-			};
-		}; */
-
-		for(var i=0;i<localStorage.length;i++){
+			for(var i=0;i<localStorage.length;i++){
 			var key = localStorage.key(i);
 			var value = localStorage.getItem(key);
 			var obj = JSON.parse(value);
@@ -36,7 +28,9 @@ $(document).on('pageinit', function(){
 			$('#list ul').append('<li>Calories: ' + obj.calories + '</li>');
 			
 			
-		};
+		};	
+			
+		}; 
 
 	});	
 
@@ -67,6 +61,7 @@ $(document).on('pageinit', function(){
 	// CLEAR STORAGE
 	$('#clear').on("click", function(){
 		if(localStorage.length === 0){
+			$('#list ul').remove();
 			alert("Already Cleared!");
 			return;
 		}
@@ -82,24 +77,69 @@ $(document).on('pageinit', function(){
 	
 
 
-	//ajax parse
+	// JSON ajax parse
 	$('#json').on("click", function(){
+		$('#list ul').remove();
+		$.getJSON('xhr/data.json', function(data) {
+        	for (var i in data.entries) {
+        		$('#list').append('<ul>' + data.entries[i].name + '</ul>');
+        		$('#list ul').append('<li>' + data.entries[i].date + '</li>');
+        		$('#list ul').append('<li>' + data.entries[i].calories + '</li>');    
+        	}
+  		});
+  	/*	$.getJSON('xhr/data.json', function(data) {
+        var output="<ul>";
+        for (var i in data.entries) {
+            output+="<li>" + data.entries[i].name + " " + data.entries[i].date + "--" + data.entries[i].calories +"</li>";
+        }
+
+        output+="</ul>";
+        document.getElementById("list").innerHTML=output;
+  		}); */
+  		
+	});	
 	
+	// XML ajax parse
+	$('#xml').on("click", function(){
+		$('#list ul').remove();
 		$(function(){
 			$.ajax({
-   				url      : "xhr/data.json",
+   				url      : "xhr/data.xml",
 				type     : "GET",
- 				dataType : "json",
-   				success  : function(data, status) {
-    				console.log(status, data);
-   				},
+ 				dataType : "xml",
+   				success  : showXML,			
    				error : function(error, parseerror){
    					console.log("Error: " + error + "\nParse Error: " + parseerror);
    				}
    			});
+   			
+   			function showXML(xml, textStatus, jqXHR){
+   				$('#list').append('<ul></ul>')
+    			$('#list ul').append(jqXHR.responseText);
+    		}
 		});
+
 	});	
 	
+	// CSV ajax parse
+	$('#csv').on("click", function(){
+		$('#list ul').remove();
+		$.ajax({
+			url		: "xhr/data.csv",
+			type	: "GET",
+			dataType: "text",
+			success	: function(data, success){
+				console.log("Success!");
+				$('#list').append('<ul></ul>');
+				$('#list ul').append('<li>' + data + '</li>');
+			},
+			error 	: function(error,parseerror){
+				console.log("No CSV");
+			}
+
+		});	
+	
+	});
 	
 	
 	
