@@ -2,6 +2,9 @@
   "env": {
     "local": {
       "db": "http://127.0.0.1:5984/asdproject"
+    },
+    "cloudant": {
+      "db": "https://wherelenuastrournedilent:BLK103f0O5Rh1T0ff2JF6jgu@shaunthompson.cloudant.com/healthylife"
     }
   }
 }
