@@ -3,7 +3,7 @@
 
 // DOM CHECK
 $(document).on('pageinit', function(){
-	
+	console.log("DOM Ready!");
 
 	
 	
