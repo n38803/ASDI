@@ -12,6 +12,7 @@
 		
 		<title>Healthy Life</title>
 
+		<link rel="stylesheet" href="jquery.mobile-1.3.2.min.css" />
 		<script src="modernizr.custom.min.js"></script>
 	
 	</head>
@@ -203,16 +204,25 @@
 			<a href="#" id="xml" data-role="button" data-transition="fade">Populate XML</a>
 			<a href="#" id="csv" data-role="button" data-transition="fade">Populate CSV</a>
             
-            <div id="entrylist">
-            
+            <div id="list">
             </div>
+            
+            <div id "trackerlinks" data-role="controlgroup" data-type="horizontal" align="center">
+				<a href="#form" data-transition="slide" data-role="button" data-inline="true">Add a Meal</a>				
+				<a href="#" id="clear" data-role="button" data-theme="b" data-inline="true">Clear Tracker</a>
+			</div>
             			
 		</div>
 		
-		<div data-role="footer" data-position="fixed">
-			<div data-role="controlgroup" data-type="horizontal" id="footNav">
-				<a href="#form" data-transition="slide" data-role="button" data-inline="true">Add a Meal</a>				
-				<a href="#" id="clear" data-role="button" data-theme="b" data-inline="true">Clear Tracker</a>
+
+		<div data-role="footer" data-position="fixed" data-id="home">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" data-posicon="top">Home</a></li>
+					<li><a href="#error" data-icon="info" data-posicon="top">Notifcations</a></li>
+					<li><a href="#error" data-icon="grid" data-posicon="top">Share</a></li>
+					<li><a href="#error" data-icon="edit" data-posicon="top" >Feedback</a></li>
+				</ul>
 			</div>
 		</div>
 		

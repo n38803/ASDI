@@ -20,16 +20,25 @@ $(document).on('pageinit', function(){
 					var name = program.value.name;
 					var date = program.value.date;
 					var calories = program.value.calories;
-					$('list').append('<li></li>');
+					$('#list').append('<ul></ul>');
+					$('#list ul').append('<li>' + name + '</li>');
+					$('#list ul').append('<li>' + date + '</li>');
+					$('#list ul').append('<li>' + calories + '</li>');
 				});
-			$('list').listview('refresh');
 			}
+			
 		});   
 		
 	});	
 
 
+	// STORE ITEM
 	
+	$('#submitMeal').on("click", function(){
+	
+		alert("This function is currently unavailable.");
+	
+	});
 
 	
 	// CLEAR STORAGE
