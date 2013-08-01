@@ -3,30 +3,305 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
+		<meta name="robots" content="noindex, nofollow" />	
+		<meta name="HandheldFriendly" content="True">
+		<meta name="MobileOptimized" content="320"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		
+		<meta http-equiv="cleartype" content="on">
+		
 		<title>Healthy Life</title>
-		<script src="jquery-1.10.2.min.js"></script>
-		<script src="jquery.mobile-1.3.2.min.js"></script>
-		<script type="text/javascript" src="jquery.validate.min.js"></script>
-		<script src="jquery.couch.js"></script>
+
 		<link rel="stylesheet" href="jquery.mobile-1.3.2.min.css" />
+		<script src="modernizr.custom.min.js"></script>
 	
 	</head>
 	
 	<body>
-		<div data-role="page" id="home">
-			<div data-role="header" data-position="fixed">
-				<h1>Home</h1>
-			</div>
-			<div data-role="content" class="ui-body-a">
-				<ul id="homeItems" data-role="listview">
+
+	<div data-role="page" id="home">
+		
+		<div data-role="header" data-position="fixed" data-id="home" align="center">
+		
+			<img src="h4.png"></img>
+				
+		</div>
+		
+		<div data-role="content" data-theme="a">
+		
+			<p align="center">
+				<br><img src="feature.png"></img></br>
+				<br><a href="#tracker"><img src="cta.png"></img></a></br>
+			</p>
+			
+			
+			<ul data-role="listview" data-inset="true" data-filter="true">
+				<li data-role="list-divider" data-theme="a"><div align="center">BROWSE BY CATEGORY</div></li>
+				<li><a href="#error">Healthy Habits</a></li>
+				<li><a href="#nutrition">Nutrition Guide</a></li>
+				<li><a href="#error">Food & Recipes</a></li>
+				<li><a href="#error">Diet</a></li>
+				<li><a href="#exercise">Exercise</a></li>	
+			</ul>
+	
+
+		</div>
+		
+		<div data-role="footer" data-position="fixed" data-id="home">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" data-posicon="top" class="ui-btn-active">Home</a></li>
+					<li><a href="#error" data-icon="info" data-posicon="top" >Notifications</a></li>
+					<li><a href="#error" data-icon="grid" data-posicon="top" >Share</a></li>
+					<li><a href="#error" data-icon="edit" data-posicon="top" >Feedback</a></li>
 				</ul>
 			</div>
 		</div>
+		
+	</div>
 
+	<div data-role="page" id="error" data-add-back-btn="true">
+		
+		<div data-role="header" data-position="fixed" data-id="home">
+		
+			<img src="h4.png" align="right"></img>
+					
+		</div>
+		
+		<div data-role="content" data-theme="a">
+			<h3>Error 404: Your content cannot be found!</h3>
+			<p>The information you are attempting to access cannot be located.  Please hit the back button and make another selection.</p>
+		</div>
+		
+		<div data-role="footer" data-position="fixed" data-id="home">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" data-posicon="top">Home</a></li>
+					<li><a href="#error" data-icon="info" data-posicon="top">Notifcations</a></li>
+					<li><a href="#error" data-icon="grid" data-posicon="top">Share</a></li>
+					<li><a href="#error" data-icon="edit" data-posicon="top" >Feedback</a></li>
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+	
+	<div data-role="page" id="exercise" data-add-back-btn="true">
+		
+		<div data-role="header" data-position="fixed" data-id="home">
+		
+			<img src="h4.png" align="right"></img>
+				
+		</div>
+		
+		
+		<div data-role="content" data-theme="a">
+		
+			<div class="ui-grid-a">
+			
+				<div class="ui-block-a"><div class="ui-bar ui-bar-a"><a href="#error"><img src="stretching.jpg"></img><p>Stretching</p></a></div></div>
+				<div class="ui-block-b"><div class="ui-bar ui-bar-a"><a href="#error"><img src="cardio.jpg"></img><p>Cardio</p></a></div></div>
+				<div class="ui-block-a"><div class="ui-bar ui-bar-a"><a href="#error"><img src="weight.jpg"></img><p>FreeWeights</p></a></div></div>
+				<div class="ui-block-b"><div class="ui-bar ui-bar-a"><a href="#error"><img src="yardwork.jpg"></img><p>OutDoors</p></a></div></div>
+				<div class="ui-block-a"><div class="ui-bar ui-bar-a"><a href="#error"><img src="waterloss.jpg"></img><p>Water Loss</p></a></div></div>
+				<div class="ui-block-b"><div class="ui-bar ui-bar-a"><a href="#error"><img src="success.jpg"></img><p>Success</p></a></div></div>
+				
+			</div>
+		
+		
+		
+		
+		</div>
+		
+		<div data-role="footer" data-position="fixed" data-id="home">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" data-posicon="top">Home</a></li>
+					<li><a href="#error" data-icon="info" data-posicon="top">Notifications</a></li>
+					<li><a href="#error" data-icon="grid" data-posicon="top">Share</a></li>
+					<li><a href="#error" data-icon="edit" data-posicon="top" >Feedback</a></li>
+				</ul>
+			</div>
+		</div>
+		
+	</div>
 
+	<div data-role="page" id="nutrition" data-add-back-btn="true">
+		
+		<div data-role="header" data-position="fixed" data-id="home">
+		
+			<img src="h4.png" align="right"></img>
+				
+		</div>
+		
+		
+		<div data-role="content" data-theme="a">
+			
+			<div data-role="collapsible-set">
+				
+				<div data-role="collapsible" data-collapsed="true">
+					<h3>Fats</h3>
+					<p>The food pyramid advises that fats be consumed sparingly. Butter and oils are examples of fats. Healthy sources of fat can be found in fish, nuts, and certain fruits and vegetables, such as avocados.</p>
+				</div>
+			
+				<div data-role="collapsible" data-collapsed="true">
+					<h3>Meats</h3>
+					<p>All muscle tissue is very high in protein, containing all of the essential amino acids, and in most cases is a good source of zinc, vitamin B12, selenium, phosphorus, niacin, vitamin B6, choline, riboflavin and iron.[56] Several forms of meat are high in vitamin K2,[57] which is only otherwise known to be found in fermented foods[citation needed], with natto having the highest concentration.[57] Muscle tissue is very low in carbohydrates and does not contain dietary fiber.[58] The fat content of meat can vary widely depending on the species and breed of animal, the way in which the animal was raised, including what it was fed, the anatomical part of the body, and the methods of butchering and cooking. Wild animals such as deer are typically leaner than farm animals, leading those concerned about fat content to choose game such as venison. Decades of breeding meat animals for fatness is being reversed by consumer demand for meat with less fat.</p>
+				</div>
+			
+				<div data-role="collapsible" data-collapsed="true">
+					<h3>Dairy</h3>
+					<p>Dairy products are produced from the milk of mammals, most usually but not exclusively cattle. They include milk, yogurt and cheese. Milk and its derivative products are a rich source of dietary calcium, but also provide protein, phosphorus, vitamin A, and vitamin D. However, many dairy products are high in saturated fat and cholesterol compared to vegetables, fruits and whole grains, which is why skimmed products are available as an alternative. For adults, three cups of dairy products are recommended per day.</p>
+				</div>
+			
+				<div data-role="collapsible" data-collapsed="true">
+					<h3>Vegetable</h3>
+					<p>A vegetable is a part of a plant consumed by humans that is generally savory but is not sweet. A vegetable is not considered a grain, fruit, nut, spice, or herb. For example, the stem, root, flower, etc., may be eaten as vegetables. Vegetables contain many vitamins and minerals; however, different vegetables contain different spreads, so it is important to eat a wide variety of types. For example, green vegetables typically contain vitamin A, dark orange and dark green vegetables contain vitamin C,and vegetables like broccoli and related plants contain iron and calcium. Vegetables are very low in fats and calories, but ingredients added in preparation can often add these.</p>
+				</div>
+				
+				<div data-role="collapsible" data-collapsed="true">
+					<h3>Fruit</h3>
+					<p>In terms of food (rather than botany), fruits are the sweet-tasting seed-bearing parts of plants, or occasionally sweet parts of plants which do not bear seeds. These include apples, oranges, plums, bananas, etc. Fruits are low in calories and fat and are a source of natural sugars, fiber and vitamins. Processing fruits when canning or making into juices may add sugars and remove nutrients. The fruit food group is sometimes combined with the vegetable food group. Note that many foods considered fruits in botany because they bear seeds are not considered fruits in cuisine because they lack the characteristic sweet taste, e.g., tomatos or avocados.</p>
+				</div>
+				
+				<div data-role="collapsible" data-collapsed="true">
+					<h3>Grain</h3>
+					<p>Grains are small, hard, dry seeds (with or without hull or fruit layers attached) harvested for human food or animal feed.[1] Agronomists also call the plants producing such seeds 'grains' or 'grain crops'.</p>
+					<p>Harvested, dry grain has advantages over other staple foods such as the starchy fruits (e.g., plantain, breadfruit) and roots/tubers (e.g., sweet potato, cassava, yam) in being easy to store, handle and transport. In particular, these qualities have allowed mechanical harvesting, transporting by rail or ship, long-term storage in grain silos, large-scale milling or pressing and industrial agriculture in general. Thus, major commodity exchanges deal with soybean, rice, wheat, maize, canola, and other grains but not in vegetables, tubers, or many other crops</p>
+				</div>
+			
+			</div>
+
+		</div>
+		
+		<div data-role="footer" data-position="fixed" data-id="home">
+			<h4>Footer</h4>
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" data-posicon="top">Home</a></li>
+					<li><a href="#error" data-icon="info" data-posicon="top">Notifications</a></li>
+					<li><a href="#error" data-icon="grid" data-posicon="top">Share</a></li>
+					<li><a href="#error" data-icon="edit" data-posicon="top" >Feedback</a></li>
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+	
+	<div data-role="page" id="tracker" data-add-back-btn="true">
+		
+		<div data-role="header" data-position="fixed" data-id="home">
+		
+			<img src="h4.png" align="right"></img>
+					
+		</div>
 
 	
+		<div data-role="content">
+			
+			<a href="#" id="display" data-role="button" data-transition="fade">Show Meals</a>
+            
+            <div id="list">
+            </div>
+            
+            <div id "trackerlinks" data-role="controlgroup" data-type="horizontal" align="center">
+				<a href="#form" data-transition="slide" data-role="button" data-inline="true">Add a Meal</a>				
+				<a href="#" id="clear" data-role="button" data-theme="b" data-inline="true">Clear Tracker</a>
+			</div>
+            			
+		</div>
+		
+
+		<div data-role="footer" data-position="fixed" data-id="home">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" data-posicon="top">Home</a></li>
+					<li><a href="#error" data-icon="info" data-posicon="top">Notifcations</a></li>
+					<li><a href="#error" data-icon="grid" data-posicon="top">Share</a></li>
+					<li><a href="#error" data-icon="edit" data-posicon="top" >Feedback</a></li>
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+		
+	<div data-role="page" id="form" data-add-back-btn="true">
+		
+		<div data-role="header" data-position="fixed" data-id="home">
+		
+			<img src="h4.png" align="right"></img>
+					
+		</div>
+		
+		<div data-role="content" data-theme="a">
+			<h3>Meal Tracker:</h3>
+			
+			<p>* Denotes Required Fields</p>
+			
+			<form action="" method="post" id="calform">
+
+				<div data-role="fieldcontain">	
+					<label for="name">Food Name*</label>
+					<input type="text" name="name" id="name" placeholder="Steak, Apple, Popcorn, etc." class="required" />
+				</div>	
+
+
+				<div data-role="fieldcontain">
+					<label for="date">Date*</label>
+					<input type="date" name="date" id="date" value="2013-03-21" class="required" />
+				</div>
+				
+				<div data-role="fieldcontain">
+					<label for="calories">Calorie Amount</label>
+					<input type="range" name="calories" id="calories" value="0" min="0" max="3000" />
+				</div>
+				
+				<div class="ui-grid-a">
+					<div class="ui-block-a"><input type="submit" id="submitMeal" value="Submit" /></div>
+					<div class="ui-block-b"><input type="reset" value="Reset" /></div>
+				</div>	
+				
+			</form>
+				
+				<a href="#formerrors" id="errorslink" data-rel="dialog">Open Errors</a>
+				<a href="#" id="display">View Entries</a>
+		
+		</div>
+		
+		<div data-role="footer" data-position="fixed" data-id="home">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#home" data-icon="home" data-posicon="top">Home</a></li>
+					<li><a href="#error" data-icon="info" data-posicon="top">Notifications</a></li>
+					<li><a href="#error" data-icon="grid" data-posicon="top">Share</a></li>
+					<li><a href="#error" data-icon="edit" data-posicon="top"  class="ui-btn-active">Feedback</a></li>
+				</ul>
+			</div>
+		</div>
+	
+	</div>
+	
+	<div data-role="dialog" id="formerrors">
+		
+		<div data-role="header" data-position="fixed">
+		
+			<h4>Missing Fields</h4>
+				
+		</div>
+		
+		<div data-role="content">
+	
+			<ul>
+				<li>Test</li>
+			</ul>
+		</div>
+	
+	</div>
+
+		<script src="jquery-1.10.2.min.js"></script>
+		<script src="jquery.mobile-1.3.2.min.js"></script>
+				
+		<script type="text/javascript" src="jquery.validate.min.js"></script>
 		<script type="text/javascript" src="main.js"></script>
 
 	</body>
