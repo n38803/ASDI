@@ -6,5 +6,11 @@ function (doc) {
 			"calories": doc.calories		
 		});
 	}
-
+	else if (doc._id === doc.name) {
+		emit(doc._id, {
+			"name": doc.name,
+			"date": doc.date,
+			"calories": doc.calories
+		});
+	}	
 };

@@ -2,7 +2,8 @@
 // ASDI 1307
 
 
-// HOME - 
+
+// HOME - INITIAL LOAD
 $(document).on('pageinit', '#home', function(){
 	console.log("DOM Ready!");
 
@@ -19,14 +20,14 @@ $(document).on('pageinit', '#home', function(){
 					$('#homeItems').append(
 						$('<li>').append(
 							$('<a>')
-								.attr("href", "#entryview")
+								.attr("href", "program.html?name=" + item.name)
 								.text(item.name).append(
 									$('<br>Date: ' + item.date + '</br>')
 								)
 						)
 					);
 			});
-			$('#homeItems').listview('refresh');
+			$("#homeItems").listview('refresh');
 		} 
 
 	});	
@@ -55,17 +56,30 @@ var urlVars = function(urlData){
 
 
 
-// PROGRAM - 
+// INDIVIDUAL ITEM WRITE - 
 $(document).on('pageinit', '#program', function(){
 	console.log("Entries DOM Ready!");
-	var program = urlVars();
-	console.log(program);
-	var urlData = $(this).data("url");
+	var program = urlVars()["name"];
+	console.log(name);
+	
+	// TEST
+$('#edit').on("click", function(){
+	$.couch.db("asdproject").openDoc("entry10"), {
+	    success: function(data) {
+	        console.log(data);
+	    },
+	    error: function(status) {
+	        console.log(status);
+	    }
+	}
+});
+
 
 
 
 
 });
+
 
 
 
@@ -83,14 +97,16 @@ $(document).on('pageinit', '#form', function(){
         $.couch.db("asdproject").saveDoc(doc, {
                 success: function() {
                     $.mobile.changePage( "#home", "slidedown", true, true );
+                    $("#homeItems").listview('refresh');
+                    
                 },
                 error: function() {
                     alert( "Cannot save new document." );
-                 }
+                }
         });
         return false;
     });
-	$('#homeItems').listview('refresh');
+
 	
 
 
