@@ -10,12 +10,14 @@
 		
 		<meta http-equiv="cleartype" content="on">
 		
-		<title>Healthy Life</title>
-
-		<link rel="stylesheet" href="jquery.mobile-1.3.2.min.css" />
-		<script src="modernizr.custom.min.js"></script>
+		<title>Healthy Life - Meal Entries</title>
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.css" />
+		<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
+		<script type="text/javascript" src="jquery.couch.js"></script>
 	
 	</head>
+	
 	
 	<body>
 
@@ -31,7 +33,7 @@
 		
 			<p align="center">
 				<br><img src="feature.png"></img></br>
-				<br><a href="#tracker"><img src="cta.png"></img></a></br>
+				<br><a href="entries.html"><img src="cta.png"></img></a></br>
 			</p>
 			
 			
@@ -188,99 +190,6 @@
 		
 	</div>
 	
-	<div data-role="page" id="tracker" data-add-back-btn="true">
-		
-		<div data-role="header" data-position="fixed" data-id="home">
-		
-			<img src="h4.png" align="right"></img>
-					
-		</div>
-
-	
-		<div data-role="content">
-			
-			<p><a href="#" id="display" data-role="button" data-transition="fade">Show Meals</a></p>
-            
-            <div id="list">
-            </div>
-            
-            <div id "trackerlinks" data-role="controlgroup" data-type="horizontal" align="center">
-				<a href="#form" data-transition="slide" data-role="button" data-inline="true">Add a Meal</a>				
-				<a href="#" id="clear" data-role="button" data-theme="b" data-inline="true">Clear Tracker</a>
-			</div>
-            			
-		</div>
-		
-
-		<div data-role="footer" data-position="fixed" data-id="home">
-			<div data-role="navbar">
-				<ul>
-					<li><a href="#home" data-icon="home" data-posicon="top">Home</a></li>
-					<li><a href="#error" data-icon="info" data-posicon="top">Notifcations</a></li>
-					<li><a href="#error" data-icon="grid" data-posicon="top">Share</a></li>
-					<li><a href="#error" data-icon="edit" data-posicon="top" >Feedback</a></li>
-				</ul>
-			</div>
-		</div>
-		
-	</div>
-		
-	<div data-role="page" id="form" data-add-back-btn="true">
-		
-		<div data-role="header" data-position="fixed" data-id="home">
-		
-			<img src="h4.png" align="right"></img>
-					
-		</div>
-		
-		<div data-role="content" data-theme="a">
-			<h3>Meal Tracker:</h3>
-			
-			<p>* Denotes Required Fields</p>
-			
-			<form action="" method="post" id="calform">
-
-				<div data-role="fieldcontain">	
-					<label for="name">Food Name*</label>
-					<input type="text" name="name" id="name" placeholder="Steak, Apple, Popcorn, etc." class="required" />
-				</div>	
-
-
-				<div data-role="fieldcontain">
-					<label for="date">Date*</label>
-					<input type="date" name="date" id="date" value="2013-03-21" class="required" />
-				</div>
-				
-				<div data-role="fieldcontain">
-					<label for="calories">Calorie Amount</label>
-					<input type="range" name="calories" id="calories" value="0" min="0" max="3000" />
-				</div>
-				
-				<div class="ui-grid-a">
-					<div class="ui-block-a"><input type="submit" id="submitMeal" value="Submit" /></div>
-					<div class="ui-block-b"><input type="reset" value="Reset" /></div>
-				</div>	
-				
-			</form>
-				
-				<a href="#formerrors" id="errorslink" data-rel="dialog">Open Errors</a>
-				<a href="#" id="display">View Entries</a>
-		
-		</div>
-		
-		<div data-role="footer" data-position="fixed" data-id="home">
-			<div data-role="navbar">
-				<ul>
-					<li><a href="#home" data-icon="home" data-posicon="top">Home</a></li>
-					<li><a href="#error" data-icon="info" data-posicon="top">Notifications</a></li>
-					<li><a href="#error" data-icon="grid" data-posicon="top">Share</a></li>
-					<li><a href="#error" data-icon="edit" data-posicon="top"  class="ui-btn-active">Feedback</a></li>
-				</ul>
-			</div>
-		</div>
-	
-	</div>
-	
 	<div data-role="dialog" id="formerrors">
 		
 		<div data-role="header" data-position="fixed">
@@ -298,9 +207,7 @@
 	
 	</div>
 
-		<script src="jquery-1.10.2.min.js"></script>
-		<script src="jquery.mobile-1.3.2.min.js"></script>
-				
+		
 		<script type="text/javascript" src="jquery.validate.min.js"></script>
 		<script type="text/javascript" src="main.js"></script>
 
